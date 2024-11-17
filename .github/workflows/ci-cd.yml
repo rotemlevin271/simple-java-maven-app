@@ -25,6 +25,19 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
+    - name: Install Maven 3.9.5
+      run: |
+        wget https://downloads.apache.org/maven/maven-3/3.9.5/binaries/apache-maven-3.9.5-bin.tar.gz
+        tar -xvf apache-maven-3.9.5-bin.tar.gz
+        sudo mv apache-maven-3.9.5 /opt/maven
+        echo "M2_HOME=/opt/maven" >> $GITHUB_ENV
+        echo "PATH=/opt/maven/bin:$PATH" >> $GITHUB_ENV
+        export PATH=/opt/maven/bin:$PATH
+
+    # Step 4: Verify Maven Version
+    - name: Verify Maven Version
+      run: mvn -version
+
     # Step 3: Increment Version
     - name: Increment Patch Version
       run: |
