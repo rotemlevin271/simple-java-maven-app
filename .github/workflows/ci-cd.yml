@@ -74,4 +74,4 @@ jobs:
         docker run -d -p 8081:8080 rotem1/simple-java-maven-app:${{ github.sha }}
 
     - name: Fetch Logs
-      run: docker logs $(docker ps -q --filter "ancestor=your-dockerhub-username/simple-java-maven-app:${{ github.sha }}")
+      run: docker logs $(docker ps -q --filter "ancestor=rotem1/simple-java-maven-app:${{ github.sha }}")
