@@ -54,7 +54,7 @@ jobs:
     # Step 5: Build Docker Image
     - name: Build Docker Image
       run: |
-        docker build -t your-dockerhub-username/simple-java-maven-app:${{ github.sha }} .
+        docker build -t rotem1/simple-java-maven-app:${{ github.sha }} .
 
     # Step 6: Log in to Docker Hub
     - name: Log in to Docker Hub
@@ -66,9 +66,9 @@ jobs:
     # Step 7: Push Docker Image
     - name: Push Docker Image
       run: |
-        docker push your-dockerhub-username/simple-java-maven-app:${{ github.sha }}
+        docker push rotem1/simple-java-maven-app:${{ github.sha }}
 
     # Step 8: Deploy the Image (example: local Docker container)
     - name: Deploy Docker Container
       run: |
-        docker run -d -p 8081:8080 your-dockerhub-username/simple-java-maven-app:${{ github.sha }}
+        docker run -d -p 8081:8080 rotem1/simple-java-maven-app:${{ github.sha }}
